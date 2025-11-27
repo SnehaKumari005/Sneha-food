@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodRush – Online Food Ordering</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background glow elements -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-circle">FR</div>
+      <span class="logo-text">FoodRush</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#offers">Offers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#menu" class="nav-btn">Order Now</a>
+  </header>
+
+  <!-- Cart Sidebar -->
+  <aside class="cart" id="cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="close-cart" class="icon-btn">&times;</button>
+    </div>
+    <ul class="cart-items" id="cart-items">
+      <!-- Cart items added by JS -->
+    </ul>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total">₹0</span>
+      </div>
+      <button class="checkout-btn" id="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Floating Cart Button (mobile / quick access) -->
+  <button class="floating-cart-btn" id="open-cart">
+    🛒 <span id="cart-count">0</span>
+  </button>
+
+  <!-- Hero Section -->
+  <main id="home" class="hero">
+    <div class="hero-text">
+      <p class="pill">⚡ Fast Delivery · Fresh Food</p>
+      <h1>Order your <span>favorite food</span> in just a few clicks.</h1>
+      <p class="hero-subtitle">
+        Burgers, pizzas, momos & more. Hot, fresh and delivered to your doorstep.
+        No login, no confusion – just simple ordering UI.
+      </p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn primary">Browse Menu</a>
+        <a href="#offers" class="btn ghost">View Offers</a>
+      </div>
+      <div class="hero-meta">
+        <span>🚚 Delivery in 30–40 mins</span>
+        <span>⭐ 4.8/5 Rated</span>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h2>Today’s Special Combo</h2>
+      <p>Get a cheesy pizza + fries + cold drink.</p>
+      <ul class="hero-list">
+        <li>🍕 Margherita Pizza</li>
+        <li>🍟 Peri Peri Fries</li>
+        <li>🥤 500ml Soft Drink</li>
+      </ul>
+      <p class="hero-price">
+        Only <span>₹299</span> <span class="hero-price-cut">₹399</span>
+      </p>
+      <button class="hero-card-btn"
+        data-name="Combo Special"
+        data-price="299">
+        Add Combo to Cart
+      </button>
+    </div>
+  </main>
+
+  <!-- Menu Section -->
+  <section id="menu" class="section">
+    <div class="section-header">
+      <h2>Menu</h2>
+      <p>Tap on “Add to Cart” to start your order.</p>
+    </div>
+
+    <div class="category-row">
+      <button class="category-btn active">All</button>
+      <button class="category-btn">Burgers</button>
+      <button class="category-btn">Pizza</button>
+      <button class="category-btn">Momos</button>
+      <button class="category-btn">Drinks</button>
+    </div>
+
+    <div class="cards-grid">
+      <!-- Item 1 -->
+      <article class="card" data-category="Burgers">
+        <div class="card-tag">Best Seller</div>
+        <h3>Classic Veg Burger</h3>
+        <p>Soft bun, crispy patty, fresh veggies & secret sauce.</p>
+        <p class="card-price">₹99</p>
+        <button class="btn small add-to-cart"
+          data-name="Classic Veg Burger"
+          data-price="99">
+          Add to Cart
+        </button>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="card" data-category="Burgers">
+        <h3>Cheese Blast Burger</h3>
+        <p>Loaded with double cheese, onions and jalapenos.</p>
+        <p class="card-price">₹149</p>
+        <button class="btn small add-to-cart"
+          data-name="Cheese Blast Burger"
+          data-price="149">
+          Add to Cart
+        </button>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="card" data-category="Pizza">
+        <div class="card-tag">Hot</div>
+        <h3>Spicy Paneer Pizza</h3>
+        <p>Paneer, capsicum, olives & extra cheese on top.</p>
+        <p class="card-price">₹249</p>
+        <button class="btn small add-to-cart"
+          data-name="Spicy Paneer Pizza"
+          data-price="249">
+          Add to Cart
+        </button>
+      </article>
+
+      <!-- Item 4 -->
+      <article class="card" data-category="Pizza">
+        <h3>Farmhouse Pizza</h3>
+        <p>Mushrooms, onion, tomato & crunchy capsicum.</p>
+        <p class="card-price">₹229</p>
+        <button class="btn small add-to-cart"
+          data-name="Farmhouse Pizza"
+          data-price="229">
+          Add to Cart
+        </button>
+      </article>
+
+      <!-- Item 5 -->
+      <article class="card" data-category="Momos">
+        <h3>Veg Steamed Momos</h3>
+        <p>10 pieces served with spicy red chutney.</p>
+        <p class="card-price">₹129</p>
+        <button class="btn small add-to-cart"
+          data-name="Veg Steamed Momos"
+          data-price="129">
+          Add to Cart
+        </button>
+      </article>
+
+      <!-- Item 6 -->
+      <article class="card" data-category="Momos">
+        <div class="card-tag">New</div>
+        <h3>Cheese Corn Momos</h3>
+        <p>Creamy cheese & corn stuffing with crunchy bite.</p>
+        <p class="card-price">₹159</p>
+        <button class="btn small add-to-cart"
+          data-name="Cheese Corn Momos"
+          data-price="159">
+          Add to Cart
+        </button>
+      </article>
+
+      <!-- Item 7 -->
+      <article class="card" data-category="Drinks">
+        <h3>Cold Coffee</h3>
+        <p>Thick, frothy, perfectly chilled with ice.</p>
+        <p class="card-price">₹89</p>
+        <button class="btn small add-to-cart"
+          data-name="Cold Coffee"
+          data-price="89">
+          Add to Cart
+        </button>
+      </article>
+
+      <!-- Item 8 -->
+      <article class="card" data-category="Drinks">
+        <h3>Lemon Iced Tea</h3>
+        <p>Refreshing lemon flavour with a hint of mint.</p>
+        <p class="card-price">₹79</p>
+        <button class="btn small add-to-cart"
+          data-name="Lemon Iced Tea"
+          data-price="79">
+          Add to Cart
+        </button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Offers Section -->
+  <section id="offers" class="section section-alt">
+    <div class="section-header">
+      <h2>Special Offers</h2>
+      <p>Apply these on checkout (for now just info cards).</p>
+    </div>
+
+    <div class="offers-grid">
+      <article class="offer-card">
+        <h3>🔥 Weekend Treat</h3>
+        <p>Flat 20% off on orders above ₹499.</p>
+        <p class="offer-code">Use Code: WEEKEND20</p>
+      </article>
+
+      <article class="offer-card">
+        <h3>👨‍🎓 Student Special</h3>
+        <p>Get free cold drink on 2 burgers.</p>
+        <p class="offer-code">Show ID at delivery.</p>
+      </article>
+
+      <article class="offer-card">
+        <h3>💥 First Order</h3>
+        <p>₹100 off on your first order.</p>
+        <p class="offer-code">Auto-applied at checkout.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <h2>Contact Us</h2>
+      <p>Have feedback or want to partner? Drop a message.</p>
+    </div>
+
+    <div class="contact-layout">
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('This is a demo form for UI.');">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required />
+        </div>
+        <div class="form-row">
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-row">
+          <textarea rows="3" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn primary full-width">Send Message</button>
+      </form>
+
+      <div class="contact-info-box">
+        <h3>Store Info</h3>
+        <p>📍 Ludhiana, Punjab, India</p>
+        <p>📞 +91-98765-43210</p>
+        <p>🕒 10:00 AM – 11:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© <span id="year"></span> FoodRush · Demo Food Ordering UI · Built with HTML, CSS & JS</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
